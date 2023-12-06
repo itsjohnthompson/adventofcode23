@@ -1,5 +1,8 @@
 import sys
 
+def single_calibration(low, high):
+    return (high * 10)+low
+
 # arg 1 input, 2 intermediate (numbers per line), 3 total
 with open(sys.argv[1], "r") as f:
     data = f.readlines()
@@ -20,7 +23,10 @@ for line in data:
 
     # TODO what if empty?
     try:
-        print(stack.pop())
-        print(stack[0])
+        low = int(stack.pop())
+        high = int(stack[0])
+        #print(stack.pop())
+        #print(stack[0])
+        print(single_calibration(low, high))
     except IndexError:
         pass
