@@ -1,5 +1,8 @@
 import sys
 
+DIGITS = ["one", "two", "three",
+          "four", "five", "six", "seven", "eight", "nine"]
+
 def single_calibration(low, high):
     return (high * 10)+low
 
@@ -40,17 +43,17 @@ for line in data:
         #print(stack[0])
         cal = single_calibration(low, high)
         output+=cal
-        intermediate_value = convert_intermediate_val(intermediate, data.index(line))
+        intermediate_value = 0# convert_intermediate_val(intermediate, data.index(line))
         print(cal == intermediate_value)
     except IndexError:
         pass
 
 test_answer = 0
-with open(sys.argv[3], "r") as f:
-    data = f.read()
-    data = data.strip('\r')
-    data = int(data)
-    test_answer = data
+#with open(sys.argv[3], "r") as f:
+#    data = f.read()
+#    data = data.strip('\r')
+#    data = int(data)
+#    test_answer = data
 
 print("Final answer")
 print(output)
