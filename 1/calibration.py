@@ -16,6 +16,8 @@ with open(sys.argv[1], "r") as f:
 with open(sys.argv[2], "r") as f:
     intermediate = f.readlines()
 
+output = 0
+
 for line in data:
     chars = line.strip('\n')
     print(chars)
@@ -37,7 +39,20 @@ for line in data:
         #print(stack.pop())
         #print(stack[0])
         cal = single_calibration(low, high)
+        output+=cal
         intermediate_value = convert_intermediate_val(intermediate, data.index(line))
         print(cal == intermediate_value)
     except IndexError:
         pass
+
+test_answer = 0
+with open(sys.argv[3], "r") as f:
+    data = f.read()
+    data = data.strip('\r')
+    data = int(data)
+    test_answer = data
+
+print("Final answer")
+print(output)
+match = (output==test_answer)
+print(f"Matches test? {match}")
