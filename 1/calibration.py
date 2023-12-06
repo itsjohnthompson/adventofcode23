@@ -1,7 +1,8 @@
+import sys
 
+with open(sys.argv[1], "r") as f:
+    data = f.readlines()
 
-print("hello")
-
-with open("input", "r") as f:
-    data = f.read()
-    print(data)
+for line in data:
+    chars = line.strip('\n')
+    print(chars)
